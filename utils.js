@@ -71,10 +71,10 @@ export default {
                 let hasMpv = false,
                     hasVLC = false;
                 try {
-                    hasMpv = Boolean(await commandExists('fj'));
+                    hasMpv = Boolean(await commandExists('mpv'));
                 } catch (e) {} // just keeping catch block for not interrupting the process
                 try {
-                    hasVLC = Boolean(await commandExists('ff'));
+                    hasVLC = Boolean(await commandExists('vlc'));
                 } catch (e) {} // just keeping catch block for not interrupting the process
                 if (hasMpv) return this.openUrlInMpvPlayer(url);
                 else if (hasVLC) return this.openUrlInVlcPlayer(url);
