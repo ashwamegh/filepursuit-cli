@@ -205,7 +205,7 @@ export default class Helpers {
             this.readline.question(`${chalk.yellowBright.bold('\n🪧 Enter your selection:')} `, (query) => {
                 if (!query || query < 0 || query > selectionSize) {
                     log(chalk.redBright("😬 Your selection item doesn't exist, please enter correct one"));
-                    resolve(getUserSelection(selectionSize));
+                    resolve(this.getUserSelection(selectionSize));
                 } else {
                     resolve(query);
                 }
@@ -235,7 +235,7 @@ export default class Helpers {
                 (option) => {
                     if (!Object.values(LinkOptions).includes(option.toUpperCase())) {
                         log(chalk.redBright("😬 Your selected option doesn't exist, please enter correct one"));
-                        resolve(selectFileOptions(fileType));
+                        resolve(this.selectFileOptions(fileType));
                     } else resolve(option.toUpperCase());
                 },
             );
@@ -243,18 +243,33 @@ export default class Helpers {
     };
 
     handleSelectedOption = async (optionSelected, file) => {
-        switch (optionSelected) {
-            case LinkOptions.Download:
-                Utils.downloadFile(file.file_link, process.cwd() + `/ ${file.file_name}`, file.file_size);
-                break;
-            case LinkOptions.Stream:
-                const streamUrl = await Utils.streamLinkInPlayer(file.file_link, file.file_type);
-                break;
-            case LinkOptions.Open:
-                const isUrlOpen = await Utils.openLinkInBrowser(file.file_link);
-                break;
-            default:
-                break;
+        try {
+            switch (optionSelected) {
+                case LinkOptions.Download:
+                    await Utils.downloadFile(file.file_link, process.cwd() + `/ ${file.file_name}`, file.file_size);
+                    break;
+                case LinkOptions.Stream:
+                    await Utils.streamLinkInPlayer(file.file_link, file.file_type);
+                    break;
+                case LinkOptions.Open:
+                    await Utils.openLinkInBrowser(file.file_link);
+                    break;
+                default:
+                    break;
+            }
+        } catch (error) {
+            log(chalk.redBright(error));
         }
+
+        this.readline.close();
     };
+
+    static showRotatingLoader() {
+        var P = ['\\', '|', '/', '-'];
+        var x = 0;
+        return setInterval(function () {
+            process.stdout.write('\r' + P[x++]);
+            x &= 3;
+        }, 250);
+    }
 }
