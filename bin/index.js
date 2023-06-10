@@ -38,7 +38,7 @@ const main = async ({ discover, triggeredFromOptions } = { discover: false, trig
         if (links_found && links_found.length > 0) {
             links_found.forEach((r, i) => {
                 log(
-                    `\n${chalk.yellow.underline.bold(i + 1)}.${chalk.green.bold(r.file_name)} ${
+                    `\n${chalk.yellow.underline.bold(i + 1)}) ${chalk.green.bold(r.file_name)} ${
                         r.file_size ? '- ' + chalk.magentaBright(r.file_size) : ''
                     } - ${chalk.italic.blueBright(r.file_link)} `,
                 );
