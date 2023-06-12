@@ -67,7 +67,7 @@ export default {
         if (error) {
             throw `exec error: ${error}`;
         }
-        return process.exit(0);
+        return isUsingWindows ?? process.exit(0);
     },
 
     async streamLinkInPlayer(url, file_type) {
