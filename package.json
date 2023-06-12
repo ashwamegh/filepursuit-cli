@@ -1,5 +1,6 @@
 {
     "name": "filepursuit-cli",
+    "description": "A Node.js command line app to interact with FilePursuit API.",
     "version": "0.5.0",
     "main": "bin/index.js",
     "license": "MIT",
@@ -10,6 +11,29 @@
     "bin": {
         "filepursuit": "./bin/index.js"
     },
+    "author": {
+        "name": "Shashank Shekhar",
+        "email": "shashank7200@gmail.com",
+        "url": "https://ashwamegh.github.io"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ashwamegh/filepursuit-cli.git"
+    },
+    "engines": {
+        "node": ">=16.14.0"
+    },
+    "readme": "https://github.com/ashwamegh/filepursuit-cli/README.md",
+    "funding": [
+        {
+            "type": "buymeacoffee",
+            "url": "https://www.buymeacoffee.com/ashwameghwork"
+        },
+        {
+            "type": "patreon",
+            "url": "https://patreon.com/ashwamegh"
+        }
+    ],
     "dependencies": {
         "chalk": "^5.2.0",
         "command-exists": "^1.2.9",
