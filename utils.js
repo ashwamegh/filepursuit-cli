@@ -13,6 +13,8 @@ import Helpers from './helpers.js';
 
 const exec = promisify(_exec);
 
+const isUsingWindows = process.platform == 'win32';
+
 export default {
     async downloadFile(url, path, fileSize) {
         try {
@@ -55,7 +57,11 @@ export default {
     },
 
     async openUrlInVlcPlayer(url) {
-        const execOutput = await exec(`vlc ${url}`);
+        const execOutput = await open(url, {
+            app: {
+                name: 'vlc',
+            },
+        });
         const { error = null, stdout, stderr } = execOutput;
 
         if (error) {
@@ -76,10 +82,21 @@ export default {
                 try {
                     hasVLC = Boolean(await commandExists('vlc'));
                 } catch (e) {} // just keeping catch block for not interrupting the process
+
+                log(
+                    chalk.cyanBright(
+                        '\n👾 The program tries to use `mpv` or `vlc` to stream the url!!\nmpv reference: https://mpv.io/installation/\nvlc reference: https://www.videolan.org/vlc/',
+                    ),
+                    chalk.magentaBright(
+                        '\nIf `mpv` or `vlc` is not installed try to install it before streaming, otherwise open the link with the browser.',
+                    ),
+                );
+
                 if (hasMpv) return this.openUrlInMpvPlayer(url);
-                else if (hasVLC) return this.openUrlInVlcPlayer(url);
-                else
-                    throw '\n👾 Either `mpv` or `vlc` was not found to stream the url!!\nmpv reference: https://mpv.io/installation/\nvlc reference: https://www.videolan.org/vlc/';
+                else if (hasVLC || isUsingWindows) return this.openUrlInVlcPlayer(url);
+                else {
+                    throw '\n⚠️ Either `mpv` or `vlc` was not found to stream the url!!';
+                }
             } else throw '\n👾 The link is not streamable!!';
         } catch (error) {
             log(chalk.redBright(error));
@@ -89,7 +106,7 @@ export default {
     },
 
     async openLinkInBrowser(url) {
-        await open(url);
+        await open(url, { wait: isUsingWindows });
         return process.exit(0);
     },
 };
