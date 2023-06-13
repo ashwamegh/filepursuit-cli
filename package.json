@@ -6,7 +6,10 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
-        "start": "node ./bin/index.js"
+        "start": "node ./bin/index.js",
+        "release:major": "npm version major",
+        "release:minor": "npm version minor",
+        "release:patch": "npm version patch"
     },
     "bin": {
         "filepursuit": "./bin/index.js"
