@@ -5,7 +5,8 @@ Use `filepursuit` to interact with FilePursuit API in the command line to **Down
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ashwamegh/filepursuit-cli/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-google-brightgreen.svg)](https://google.github.io/styleguide/jsguide.html)
-[![JavaScript Style Guide](https://img.shields.io/github/languages/top/ashwamegh/filepursuit-cli)]()
+![JavaScript Style Guide](https://img.shields.io/github/languages/top/ashwamegh/filepursuit-cli)
+[![NPM](https://img.shields.io/npm/v/filepursuit-cli?style=flat)](https://www.npmjs.com/package/filepursuit-cli)
 <br>
 <a href="https://www.buymeacoffee.com/ashwamegh" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
