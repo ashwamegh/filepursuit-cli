@@ -1,7 +1,7 @@
 {
     "name": "filepursuit-cli",
     "description": "A Node.js command line app to interact with FilePursuit API.",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "main": "bin/index.js",
     "license": "MIT",
     "type": "module",
