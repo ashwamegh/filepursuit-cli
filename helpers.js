@@ -67,7 +67,7 @@ export default class Helpers {
         log(`
     Usage:
         filepursuit
-        filepursuit [opitons]/[command]
+        filepursuit [options]/[command]
 
     Displays help information.
 
