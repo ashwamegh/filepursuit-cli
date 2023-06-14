@@ -95,3 +95,7 @@ Pull requests are the greatest contributions, so be sure they are focused in sco
 ## License
 
 [MIT License](https://opensource.org/licenses/MIT) © [Shashank Shekhar](https://ashwamegh.github.io)
+
+## Disclaimer:
+
+This unofficial FilePursuit CLI app is not affiliated with or endorsed by FilePursuit. It is intended for personal and educational use only. Users are responsible for their actions, ensuring compliance with copyright laws. The developers assume no liability for usage or unauthorized activities. The app is provided as-is, without warranties. Use responsibly, respect intellectual property rights, and support official services. Note that unofficial apps may carry risks, so exercise caution. We do not claim ownership of FilePursuit. For inquiries or issues, contact the official FilePursuit team. Thank you for understanding and using the app responsibly.
